@@ -1,28 +1,20 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+type ButtonProps = {
+  children: React.ReactNode;
+  variant?: "default" | "sidebar_btn" ;
+  className?: string;
+};
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant?: 'primary';
-}
-
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  className = '', 
-  ...props 
-}: ButtonProps) => {  
+export default function Button({children,variant = "default",className = "", }: ButtonProps) {
+  const base = "flex items-center cursor-pointer ";
   const variants = {
-    primary: "bg-primary hover:bg-primary-variant text-surface px-3 py-2 rounded-lg mt-4",
+    default: "text-text text-2xl",
+    sidebar_btn: "group text-2xl px-4 gap-4 py-2 font-semibold rounded-full hover:bg-primary-light",
+    
   };
 
   return (
-    <button
-      className={`${variants[variant]} ${className}`}
-      {...props}
-    >
+    <button className={`${base} ${variants[variant]} ${className}`}>
       {children}
     </button>
   );
-};
-
-export default Button;
+}

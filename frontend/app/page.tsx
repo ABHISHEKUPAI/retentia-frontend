@@ -1,9 +1,9 @@
-import SidebarInstruction from "./components/ui/Jee_sidebar/SidebarInstruction";
+import Sidebar from "./components/Sidebar";
 
 export default function Home() {
   return (
-    <main className="p-6">
-      <SidebarInstruction />
+    <main>
+      <Sidebar />
     </main>
   );
 }
